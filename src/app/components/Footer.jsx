@@ -37,14 +37,6 @@ export default function Footer() {
             <FaLinkedin size={24} />
           </a>
           <a 
-            href="https://www.instagram.com/iago_ramone/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:text-pink-500"
-          >
-            <FaInstagram size={24} />
-          </a>
-          <a 
             href="https://wa.me/+5521972992737?text=Olá,%20gostaria%20de%20mais%20informações!" 
             target="_blank" 
             rel="noopener noreferrer" 

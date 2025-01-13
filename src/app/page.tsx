@@ -1,7 +1,18 @@
-export default function Home() {
+export default function Homepage() {
   return (
     <>
-      <div className="flex h-screen items-center justify-center bg-gradient-to-r from-indigo-900 to-blue-800">
+      <div className="mx-auto w-full">
+        < Home />
+        <Portfolio />
+      </div>
+    </>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <div className="flex h-screen items-center justify-center bg-black">
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative z-10 flex w-4/5 max-w-7xl items-center justify-between">
           
@@ -13,7 +24,7 @@ export default function Home() {
               Developer
             </h1>
             <button className="rounded-full bg-blue-500 px-6 py-3 font-medium text-white transition hover:bg-blue-600">
-              See More About Us
+              Quero conhecer mais!
             </button>
           </div>
           
@@ -29,3 +40,47 @@ export default function Home() {
     </>
   );
 }
+
+function Portfolio() {
+  return (
+    <>
+      <div className="flex h-screen items-center justify-center bg-blue-400">
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="relative z-10 flex w-4/5 max-w-7xl flex-col items-center justify-between">
+          
+        <div className="max-w-8xl mt-12 grid min-h-[400px] w-full grid-cols-1 gap-6 md:grid-cols-3">
+
+            {[
+              { title: 'Adez', gif: '/portfolio/adez-portfolio.gif', static: '/portfolio/adez.png' },
+              { title: 'Projeto 2', gif: '/gif2.gif', static: '/static2.jpg' },
+              { title: 'Projeto 3', gif: '/gif3.gif', static: '/static3.jpg' },
+            ].map((card, index) => (
+              <div
+                key={index}
+                className="group relative flex flex-col items-center overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105"
+              >
+                {/* Imagem que troca no hover */}
+                <img
+                  src={card.static}
+                  alt={card.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+                />
+                <img
+                  src={card.gif}
+                  alt={`${card.title} GIF`}
+                  className="absolute inset-0 h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+                {/* Texto abaixo */}
+                <div className="relative z-10 mt-auto w-full bg-black bg-opacity-70 p-4 text-center text-white">
+                  <h3 className="text-lg font-semibold">{card.title}</h3>
+                  <p className="text-sm">Descrição do {card.title}.</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
